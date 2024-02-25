@@ -7,6 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListaPensamentoComponent implements OnInit {
 
+  ListaPensamento = [
+
+  ];
+
   constructor() { }
 
   ngOnInit(): void {
