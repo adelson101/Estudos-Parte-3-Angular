@@ -11,7 +11,7 @@ export class PensamentoComponent implements OnInit {
 
   @Input()
   public pensamento:pensamento = {
-    id: 0,
+    id: '',
     conteudo: '',
     autoria: '' ,
     modelo: ''
@@ -27,10 +27,6 @@ export class PensamentoComponent implements OnInit {
       return 'pensamento-g';
     }
     return 'pensamento-p';
-  }
-
-  excluir() {
-    this.service.excluir(this.pensamento.id:string).subscribe();
   }
 
 }

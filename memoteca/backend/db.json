@@ -1,46 +1,10 @@
 {
   "pensamentos": [
     {
-      "id": "1",
-      "conteudo": "Que bom que vc veio",
-      "autoria": "Nay",
-      "modelo": "modelo1"
-    },
-    {
-      "id": "2",
-      "conteudo": "Estudando Angular",
-      "autoria": "Dev Alura",
-      "modelo": "modelo2"
-    },
-    {
-      "id": "3",
-      "conteudo": "Angular é o melhor'",
-      "autoria": "Dev Alura",
-      "modelo": "modelo3"
-    },
-    {
-      "id": "864b",
-      "conteudo": "Pensamento teste",
-      "autoria": "adelson",
-      "modelo": "modelo1"
-    },
-    {
-      "id": "ac8b",
-      "conteudo": "Pensamento teste",
-      "autoria": "adelson",
-      "modelo": "modelo1"
-    },
-    {
-      "id": "c317",
-      "conteudo": "teste",
-      "autoria": "teste 2",
-      "modelo": "modelo2"
-    },
-    {
-      "id": 0,
-      "conteudo": "teste 2",
-      "autoria": "ade",
-      "modelo": "modelo1"
+      "conteudo": "Teste 3",
+      "autoria": "alura",
+      "modelo": "modelo3",
+      "id": 1
     }
   ]
 }
