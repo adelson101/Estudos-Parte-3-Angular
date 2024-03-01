@@ -17,7 +17,7 @@ export class PensamentoService {
 
     let params = new HttpParams()
     .set("_page",pagina)
-    .set("limit",itensPorPagina);
+    .set("_limit",itensPorPagina);
 
     return this.http.get<pensamento[]>(this.API, { params });
   }

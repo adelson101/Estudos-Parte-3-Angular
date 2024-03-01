@@ -19,7 +19,6 @@ export class ListaPensamentoComponent implements OnInit {
     this.service.listar(this.paginaAtual).subscribe((ListaPensamento) => {
       this.ListaPensamento = ListaPensamento;
     });
-    
   }
 
   carregarMaisPensamento() {
