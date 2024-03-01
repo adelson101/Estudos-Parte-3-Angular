@@ -19,9 +19,10 @@ export class EditarPensamentoComponent implements OnInit {
     const id = this.route.snapshot.paramMap.get('id');
     this.service.buscarPorId(<string>id).subscribe( (pensamento) => {
       this.formulario = this.FormBuilder.group( {
+        id: pensamento.id,
         conteudo: [ pensamento.conteudo , Validators.compose([Validators.required,Validators.pattern(/(.|\s)*\S(.|\s)*/)])],
         autoria: [ pensamento.autoria , Validators.compose([Validators.required,Validators.minLength(3)])],
-        modelo: [ pensamento.autoria ]
+        modelo: [ pensamento.modelo ]
       } );
     });
 
