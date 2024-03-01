@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PensamentoService } from '../pensamento.service';
-import { pensamento } from '../Interface/pensamento';
 import { Router } from '@angular/router';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-criar-pensamento',
@@ -17,8 +16,8 @@ export class CriarPensamentoComponent implements OnInit {
 
   ngOnInit(): void {
     this.formulario = this.FormBuilder.group( {
-      conteudo: ['', Validators.compose([Validators.required,Validators.pattern(/(.|\s)*\S(.|\s)*/)])],
-      autoria: ['', Validators.compose([Validators.required,Validators.minLength(3)])],
+      conteudo: ['', Validators.compose([Validators.required,Validators.pattern(/(.|\s)*\S(.|\s)*/)]) ],
+      autoria: ['', Validators.compose([Validators.required,Validators.minLength(3),this.apenasLetrasMinusculas])],
       modelo: ['modelo1']
     });
   }
@@ -38,6 +37,15 @@ export class CriarPensamentoComponent implements OnInit {
       return 'botao__desabilitado';
     } else {
       return 'botao';
+    }
+  }
+
+ apenasLetrasMinusculas(control: AbstractControl) {
+    const autoria = control.value as string;
+    if(autoria !== autoria?.toLowerCase()){
+      return { minusculo: true };
+    }else {
+      return null;
     }
   }
 
