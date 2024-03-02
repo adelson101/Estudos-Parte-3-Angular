@@ -14,13 +14,14 @@ export class ExcluirPensamentoComponent implements OnInit {
     id: '',
     conteudo: '',
     autoria: '',
-    modelo: ''
+    modelo: '',
+    favorito: false
   }
 
   constructor( private service: PensamentoService, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    const id = this.route.snapshot.paramMap.get('id');        
+    const id = this.route.snapshot.paramMap.get('id');
     this.service.buscarPorId(<string>id).subscribe((pensamento) => {
       this.pensamento = pensamento;
     });

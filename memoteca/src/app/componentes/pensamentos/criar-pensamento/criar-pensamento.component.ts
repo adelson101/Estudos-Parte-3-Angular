@@ -18,7 +18,8 @@ export class CriarPensamentoComponent implements OnInit {
     this.formulario = this.FormBuilder.group( {
       conteudo: ['', Validators.compose([Validators.required,Validators.pattern(/(.|\s)*\S(.|\s)*/)]) ],
       autoria: ['', Validators.compose([Validators.required,Validators.minLength(3),this.apenasLetrasMinusculas])],
-      modelo: ['modelo1']
+      modelo: ['modelo1'],
+      favorito: [false]
     });
   }
 

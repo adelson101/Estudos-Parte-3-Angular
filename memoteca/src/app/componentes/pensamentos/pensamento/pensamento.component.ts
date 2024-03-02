@@ -14,7 +14,8 @@ export class PensamentoComponent implements OnInit {
     id: '',
     conteudo: '',
     autoria: '' ,
-    modelo: ''
+    modelo: '',
+    favorito: false
   }
 
   constructor(private service: PensamentoService) { }
@@ -27,6 +28,18 @@ export class PensamentoComponent implements OnInit {
       return 'pensamento-g';
     }
     return 'pensamento-p';
+  }
+
+  mudarIconeFavorito(): string {
+    if(!this.pensamento.favorito) {
+      return 'favorito-inativo';
+    }else {
+      return 'favorito';
+    }
+  }
+
+  favoritar(): void {
+    this.service.mudarFavorito(this.pensamento).subscribe();
   }
 
 }
