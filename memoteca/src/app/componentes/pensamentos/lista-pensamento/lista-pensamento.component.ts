@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { pensamento } from '../Interface/pensamento';
 import { PensamentoService } from '../pensamento.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-lista-pensamento',
@@ -13,17 +14,19 @@ export class ListaPensamentoComponent implements OnInit {
   paginaAtual:number = 1;
   haMaisPensamentos: boolean = true;
   filter: string = '';
+  favorito: boolean = false;
+  listaFavoritos: pensamento[] = [];
 
-  constructor( private service: PensamentoService ) { }
+  constructor( private service: PensamentoService , private router: Router ) { }
 
    ngOnInit(): void {
-    this.service.listar(this.paginaAtual,this.filter).subscribe((ListaPensamento) => {
+    this.service.listar(this.paginaAtual,this.filter,this.favorito).subscribe((ListaPensamento) => {
       this.ListaPensamento = ListaPensamento;
     });
   }
 
   carregarMaisPensamento() {
-    this.service.listar(++this.paginaAtual,this.filter).subscribe((ListaPensamento) => {
+    this.service.listar(++this.paginaAtual,this.filter,this.favorito).subscribe((ListaPensamento) => {
       this.ListaPensamento.push(...ListaPensamento);
       if(!ListaPensamento.length){
         this.haMaisPensamentos = false;
@@ -31,11 +34,22 @@ export class ListaPensamentoComponent implements OnInit {
     })
   }
 
+  recarregarComponente() {
+    this.favorito = false;
+    this.paginaAtual = 1;
+    
+    this.router.routeReuseStrategy.shouldReuseRoute = () => false;
+    this.router.onSameUrlNavigation = 'reload';
+    this.router.navigate([this.router.url]);
+  }
+
   pesquisarPensamentos() {
     this.haMaisPensamentos = true;
+    this.favorito = true;
     this.paginaAtual = 1;
-    this.service.listar(this.paginaAtual,this.filter).subscribe((ListaPensamento) => {
+    this.service.listar(this.paginaAtual,this.filter,this.favorito).subscribe((ListaPensamento) => {
       this.ListaPensamento = ListaPensamento;
+      this.listaFavoritos = ListaPensamento;
     })
   }
 

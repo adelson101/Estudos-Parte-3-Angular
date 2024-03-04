@@ -4,11 +4,15 @@
       <input type="search" class="filtro" placeholder="O que você procura?" autofocus [(ngModel)]="filter" (keyup)="pesquisarPensamentos()">
     </div>
     <h2 class="ff-inter">Meu Mural</h2>
-    <button routerLink="/criarPensamento" class="botao">Adicionar pensamentos</button>
+    <div class="botoes">
+      <button class="botao" (click)="recarregarComponente()">Meu Mural</button>
+      <button class="botao" (click)="pesquisarPensamentos()">Meus Favoritos</button>
+      <button routerLink="/criarPensamento" class="botao">Adicionar pensamentos</button>
+    </div>
   </header>
   <div class="mural" *ngIf="ListaPensamento.length > 0, else semPensamentos">
     <div *ngFor="let pensamento of ListaPensamento">
-      <app-pensamento [pensamento]="pensamento" ></app-pensamento>
+      <app-pensamento [pensamento]="pensamento" [listaFavoritos]="listaFavoritos" ></app-pensamento>
     </div>
   </div>
 </section>
