@@ -8,6 +8,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
   templateUrl: './editar-pensamento.component.html',
   styleUrls: ['./editar-pensamento.component.css']
 })
+
 export class EditarPensamentoComponent implements OnInit {
 
   formulario?: FormGroup;

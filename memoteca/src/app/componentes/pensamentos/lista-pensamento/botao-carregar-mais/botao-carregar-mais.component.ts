@@ -6,7 +6,9 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./botao-carregar-mais.component.css']
 })
 export class BotaoCarregarMaisComponent implements OnInit {
-
+  @Input()
+  btnConfigs: any;
+  
   @Input()
   haMaisPensamentos: boolean = false;
 
