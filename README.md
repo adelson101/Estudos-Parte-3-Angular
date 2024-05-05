@@ -14,11 +14,12 @@ O principal objetivo da Angular Memoteca é oferecer uma plataforma moderna e ef
 
 Tecnologias Utilizadas:
 
-Angular
-TypeScript
-HTML
-CSS
+Angular,
+TypeScript,
+HTML,
+CSS,
 API Restful
+
 Contribuições:
 
 A Angular Memoteca é um projeto da Alura.
